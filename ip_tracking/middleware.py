@@ -39,7 +39,7 @@ class IPLoggingMiddleware:
                     
             RequestLog.objects.create(
                 ip_address=log_ip,
-                path=request.path
+                path=request.path,
                 country=geo_data['country'],
                 city=geo_data['city']
             )
