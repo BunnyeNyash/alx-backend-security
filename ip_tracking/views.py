@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView
-from ratelimit.decorators import ratelimit
+from django_ratelimit.decorators import ratelimit
+
 
 # Create your views here.
 class RateLimitedLoginView(LoginView):
