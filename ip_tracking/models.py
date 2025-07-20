@@ -14,3 +14,11 @@ class RequestLog(models.Model):
             models.Index(fields=['ip_address']),
             models.Index(fields=['timestamp']),
         ]
+
+class BlockedIP(models.Model):
+    ip_address = models.CharField(max_length=45, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    reason = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.ip_address
