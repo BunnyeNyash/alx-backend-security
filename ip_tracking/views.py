@@ -8,6 +8,7 @@ class RateLimitedLoginView(LoginView):
     template_name = 'login.html'
 
     @ratelimit(key='ip', rate='5/m', method='POST', block=True)
+    @ratelimit(key='user', rate='10/m', method='POST', block=True)
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             # Higher limit for authenticated users (handled by not applying ratelimit here)
